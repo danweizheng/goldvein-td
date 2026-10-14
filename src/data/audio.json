@@ -1,0 +1,374 @@
+[
+  {
+    "id": "bgm_boss",
+    "file": "assets/audio/bgm_boss.ogg",
+    "category": "bgm",
+    "bus": "bgm",
+    "gain": 1000,
+    "loop": true,
+    "fadeInMs": 1000,
+    "fadeOutMs": 1000,
+    "description": "BOSS 波 BGM"
+  },
+  {
+    "id": "bgm_menu",
+    "file": "assets/audio/bgm_menu.ogg",
+    "category": "bgm",
+    "bus": "bgm",
+    "gain": 1000,
+    "loop": true,
+    "fadeInMs": 1000,
+    "fadeOutMs": 1000,
+    "description": "主菜单 BGM"
+  },
+  {
+    "id": "bgm_result",
+    "file": "assets/audio/bgm_result.ogg",
+    "category": "bgm",
+    "bus": "bgm",
+    "gain": 1000,
+    "loop": true,
+    "fadeInMs": 1000,
+    "fadeOutMs": 1000,
+    "description": "结算 BGM"
+  },
+  {
+    "id": "bgm_wave",
+    "file": "assets/audio/bgm_wave.ogg",
+    "category": "bgm",
+    "bus": "bgm",
+    "gain": 1000,
+    "loop": true,
+    "fadeInMs": 1000,
+    "fadeOutMs": 1000,
+    "description": "常规波次 BGM"
+  },
+  {
+    "id": "sfx_amb_street",
+    "file": "assets/audio/sfx_amb_street.ogg",
+    "category": "ambience",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": true,
+    "fadeInMs": 500,
+    "fadeOutMs": 500,
+    "description": "环境音·街道背景"
+  },
+  {
+    "id": "sfx_amb_vault",
+    "file": "assets/audio/sfx_amb_vault.ogg",
+    "category": "ambience",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": true,
+    "fadeInMs": 500,
+    "fadeOutMs": 500,
+    "description": "环境音·宝库低频嗡鸣"
+  },
+  {
+    "id": "sfx_combat_archer_fire",
+    "file": "assets/audio/sfx_combat_archer_fire.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "战斗·弓箭系 放箭"
+  },
+  {
+    "id": "sfx_combat_archer_hit",
+    "file": "assets/audio/sfx_combat_archer_hit.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "战斗·弓箭系 命中（木质钝击）"
+  },
+  {
+    "id": "sfx_combat_archer_multi",
+    "file": "assets/audio/sfx_combat_archer_multi.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "战斗·弓箭系 多重箭额外目标"
+  },
+  {
+    "id": "sfx_combat_cannon_burn",
+    "file": "assets/audio/sfx_combat_cannon_burn.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "战斗·炮塔系 灼烧"
+  },
+  {
+    "id": "sfx_combat_cannon_explode",
+    "file": "assets/audio/sfx_combat_cannon_explode.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "战斗·炮塔系 溅射爆炸"
+  },
+  {
+    "id": "sfx_combat_cannon_fire",
+    "file": "assets/audio/sfx_combat_cannon_fire.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "战斗·炮塔系 开火"
+  },
+  {
+    "id": "sfx_combat_charm_cast",
+    "file": "assets/audio/sfx_combat_charm_cast.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "战斗·美女系 冰封施法"
+  },
+  {
+    "id": "sfx_combat_charm_freeze",
+    "file": "assets/audio/sfx_combat_charm_freeze.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "战斗·美女系 范围冰冻"
+  },
+  {
+    "id": "sfx_combat_charm_slow",
+    "file": "assets/audio/sfx_combat_charm_slow.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "战斗·美女系 减速命中"
+  },
+  {
+    "id": "sfx_combat_drill_attack",
+    "file": "assets/audio/sfx_combat_drill_attack.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "战斗·军训系 挥击"
+  },
+  {
+    "id": "sfx_combat_drill_block",
+    "file": "assets/audio/sfx_combat_drill_block.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "战斗·军训系 阻挡 / 列阵"
+  },
+  {
+    "id": "sfx_combat_drill_chain",
+    "file": "assets/audio/sfx_combat_drill_chain.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "战斗·军训系 锁链拉回（铁闸守卫）"
+  },
+  {
+    "id": "sfx_combat_enemy_death",
+    "file": "assets/audio/sfx_combat_enemy_death.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "战斗·敌人死亡（通用）"
+  },
+  {
+    "id": "sfx_combat_enemy_hit",
+    "file": "assets/audio/sfx_combat_enemy_hit.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "战斗·敌人受击（通用）"
+  },
+  {
+    "id": "sfx_combat_mage_aura",
+    "file": "assets/audio/sfx_combat_mage_aura.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "战斗·法师系 光环激活"
+  },
+  {
+    "id": "sfx_combat_mage_cast",
+    "file": "assets/audio/sfx_combat_mage_cast.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "战斗·法师系 施法"
+  },
+  {
+    "id": "sfx_combat_mage_hit",
+    "file": "assets/audio/sfx_combat_mage_hit.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "战斗·法师系 法术命中"
+  },
+  {
+    "id": "sfx_combat_projectile_impact",
+    "file": "assets/audio/sfx_combat_projectile_impact.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "战斗·投射物落地（通用）"
+  },
+  {
+    "id": "sfx_combat_thief_fire",
+    "file": "assets/audio/sfx_combat_thief_fire.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "战斗·神偷系 开火（匕首挥砍）"
+  },
+  {
+    "id": "sfx_combat_thief_hit",
+    "file": "assets/audio/sfx_combat_thief_hit.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "战斗·神偷系 命中（开锁式金属声）"
+  },
+  {
+    "id": "sfx_lose",
+    "file": "assets/audio/sfx_lose.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "失败 Jingle"
+  },
+  {
+    "id": "sfx_steal_crit",
+    "file": "assets/audio/sfx_steal_crit.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "暴击窃金"
+  },
+  {
+    "id": "sfx_steal_midas",
+    "file": "assets/audio/sfx_steal_midas.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "点金术"
+  },
+  {
+    "id": "sfx_steal_normal",
+    "file": "assets/audio/sfx_steal_normal.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "普通窃金"
+  },
+  {
+    "id": "sfx_ui_back",
+    "file": "assets/audio/sfx_ui_back.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "UI·返回 / 取消"
+  },
+  {
+    "id": "sfx_ui_build",
+    "file": "assets/audio/sfx_ui_build.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "UI·建造"
+  },
+  {
+    "id": "sfx_ui_click",
+    "file": "assets/audio/sfx_ui_click.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "UI·点击"
+  },
+  {
+    "id": "sfx_ui_confirm",
+    "file": "assets/audio/sfx_ui_confirm.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "UI·确认"
+  },
+  {
+    "id": "sfx_ui_error",
+    "file": "assets/audio/sfx_ui_error.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "UI·错误"
+  },
+  {
+    "id": "sfx_ui_hover",
+    "file": "assets/audio/sfx_ui_hover.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "UI·悬停"
+  },
+  {
+    "id": "sfx_ui_sell",
+    "file": "assets/audio/sfx_ui_sell.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "UI·出售（筹码结算）"
+  },
+  {
+    "id": "sfx_ui_upgrade",
+    "file": "assets/audio/sfx_ui_upgrade.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "UI·升级"
+  },
+  {
+    "id": "sfx_wave_warning",
+    "file": "assets/audio/sfx_wave_warning.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "波次预警音"
+  },
+  {
+    "id": "sfx_win",
+    "file": "assets/audio/sfx_win.ogg",
+    "category": "sfx",
+    "bus": "sfx",
+    "gain": 1000,
+    "loop": false,
+    "description": "胜利 Jingle"
+  }
+]

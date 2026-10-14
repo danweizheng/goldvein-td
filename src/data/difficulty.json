@@ -1,0 +1,72 @@
+[
+  {
+    "id": "N1",
+    "name": "新手",
+    "hpMul": 600,
+    "walletMul": 1400,
+    "counterMode": "compressed",
+    "divineArmorAllWaves": false,
+    "startGold": 3000000,
+    "startWood": 2000000,
+    "lives": 50,
+    "openLanes": 2,
+    "crystalMul": 600,
+    "description": "敌人血量 ×0.60 / 钱包 ×1.40，克制压缩，起始 3000 金 / 2000 木，生命 50，开放 2 路。首次游玩。"
+  },
+  {
+    "id": "N2",
+    "name": "标准",
+    "hpMul": 1000,
+    "walletMul": 1000,
+    "counterMode": "compressed",
+    "divineArmorAllWaves": false,
+    "startGold": 2000000,
+    "startWood": 1500000,
+    "lives": 30,
+    "openLanes": 2,
+    "crystalMul": 1000,
+    "description": "敌人血量 ×1.00 / 钱包 ×1.00，克制压缩，起始 2000 金 / 1500 木，生命 30，开放 2 路。平衡基线。"
+  },
+  {
+    "id": "N3",
+    "name": "高手",
+    "hpMul": 1600,
+    "walletMul": 900,
+    "counterMode": "standard",
+    "divineArmorAllWaves": false,
+    "startGold": 1500000,
+    "startWood": 1000000,
+    "lives": 20,
+    "openLanes": 4,
+    "crystalMul": 1600,
+    "description": "敌人血量 ×1.60 / 钱包 ×0.90，标准克制，起始 1500 金 / 1000 木，生命 20，开放 4 路。"
+  },
+  {
+    "id": "N4",
+    "name": "地狱",
+    "hpMul": 2400,
+    "walletMul": 800,
+    "counterMode": "standard",
+    "divineArmorAllWaves": false,
+    "startGold": 1000000,
+    "startWood": 800000,
+    "lives": 10,
+    "openLanes": 4,
+    "crystalMul": 2400,
+    "description": "敌人血量 ×2.40 / 钱包 ×0.80，标准克制，起始 1000 金 / 800 木，生命 10，开放 4 路。"
+  },
+  {
+    "id": "N5",
+    "name": "疯狂",
+    "hpMul": 3600,
+    "walletMul": 700,
+    "counterMode": "standard",
+    "divineArmorAllWaves": true,
+    "startGold": 800000,
+    "startWood": 500000,
+    "lives": 5,
+    "openLanes": 4,
+    "crystalMul": 3600,
+    "description": "敌人血量 ×3.60 / 钱包 ×0.70，标准克制且神圣甲全程生效，起始 800 金 / 500 木，生命 5，开放 4 路。"
+  }
+]

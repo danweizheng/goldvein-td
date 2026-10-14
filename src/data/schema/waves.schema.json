@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WaveDef",
+  "description": "单波配置（策划案 §4.5.1 / §14.2）。hint 是 §6.1 ③ 波次预告面板的数据源，本表要求三字段齐备。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["wave", "prepTime", "groups", "reward", "hint"],
+  "properties": {
+    "wave": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 30,
+      "description": "波次号，纯计数，1..30 且全局唯一"
+    },
+    "prepTime": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 60000,
+      "description": "备战时间，秒（定点）"
+    },
+    "groups": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 4,
+      "items": { "$ref": "#/definitions/WaveGroup" }
+    },
+    "reward": { "$ref": "#/definitions/Bounty" },
+    "hint": { "$ref": "#/definitions/Hint" }
+  },
+  "definitions": {
+    "ArmorType": {
+      "enum": ["light", "medium", "heavy", "fortified", "divine"]
+    },
+    "AttackType": {
+      "enum": ["normal", "pierce", "magic", "siege", "chaos"]
+    },
+    "Bounty": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["gold", "wood"],
+      "properties": {
+        "gold": { "type": "integer", "minimum": 0, "description": "本波结算奖励金币，定点" },
+        "wood": { "type": "integer", "minimum": 0, "description": "本波结算奖励木材，定点" }
+      }
+    },
+    "WaveGroup": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enemy", "count", "interval", "delay"],
+      "properties": {
+        "enemy": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$",
+          "description": "敌人 id，必须存在于 enemies.json"
+        },
+        "count": { "type": "integer", "minimum": 1, "maximum": 200, "description": "数量，纯计数" },
+        "interval": { "type": "integer", "minimum": 1, "maximum": 60000, "description": "生成间隔，秒（定点）。0.8s → 800" },
+        "delay": { "type": "integer", "minimum": 0, "maximum": 600000, "description": "本组延迟启动，秒（定点）" },
+        "path": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": { "type": "integer", "minimum": 0, "maximum": 3 },
+          "description": "路径索引；缺省 = 全部开放路径均分。N1/N2 只开放索引 0/1。"
+        }
+      }
+    },
+    "Hint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["recommendArmor", "recommendAttack", "text"],
+      "properties": {
+        "recommendArmor": { "$ref": "#/definitions/ArmorType" },
+        "recommendAttack": { "$ref": "#/definitions/AttackType" },
+        "text": { "type": "string", "minLength": 1, "maxLength": 120 }
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AudioDef",
+  "description": "音频清单（接口契约 §11.2，v0.1.1 增补）。id 必须与磁盘 public/assets/audio/<id>.ogg 一一对应（跨文件一致性由 tools/validate-data.ts 校验）。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "file", "category", "bus", "gain", "loop", "description"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(bgm|sfx)_[a-z0-9_]+$",
+      "maxLength": 48,
+      "description": "= 文件名（不含扩展名），如 'bgm_menu'。契约 §11.2 要求与 public/assets/audio/*.ogg 完全一一对应。"
+    },
+    "file": {
+      "type": "string",
+      "pattern": "^assets/audio/[a-z0-9_]+\\.ogg$",
+      "description": "相对 public/ 的路径，§11.1 冻结为扁平结构 public/assets/audio/<id>.ogg"
+    },
+    "category": {
+      "description": "bgm 4 条 / sfx 34 条 / ambience 2 条（合计 40，对照策划案 §7.3）",
+      "enum": ["bgm", "sfx", "ambience"]
+    },
+    "bus": {
+      "description": "混音通道：只有 bgm 与 sfx 两条，没有 voice（契约 §11.3 裁决）",
+      "enum": ["bgm", "sfx"]
+    },
+    "gain": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 2000,
+      "description": "建议播放音量，千分比定点。1000 = 100%"
+    },
+    "loop": {
+      "type": "boolean",
+      "description": "bgm / ambience 为 true，sfx 为 false（契约 §11.2）"
+    },
+    "fadeInMs": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 10000,
+      "description": "淡入毫秒（纯计数，非定点）。★ ambience 必须 ≥100 且与 fadeOutMs 同时提供——两个 ambience 是 30s 截取片段，接缝未做 crossfade（§11.2 第 2 条）。此条件由校验器断言。"
+    },
+    "fadeOutMs": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 10000,
+      "description": "淡出毫秒（纯计数，非定点）"
+    },
+    "description": { "type": "string", "minLength": 1, "maxLength": 80 }
+  }
+}

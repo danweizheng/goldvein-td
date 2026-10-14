@@ -1,0 +1,89 @@
+[
+  {
+    "id": "start_gold",
+    "name": "起始金库",
+    "maxLevel": 5,
+    "effectPerLevel": 500000,
+    "effectUnit": "fixed",
+    "crystalCostPerLevel": [100, 200, 400, 800, 1600],
+    "description": "起始金币 +500/级（定点：500000）。"
+  },
+  {
+    "id": "start_wood",
+    "name": "起始木料",
+    "maxLevel": 5,
+    "effectPerLevel": 200000,
+    "effectUnit": "fixed",
+    "crystalCostPerLevel": [80, 160, 320, 640, 1280],
+    "description": "起始木材 +200/级（定点：200000）。"
+  },
+  {
+    "id": "greedy_hand",
+    "name": "贪婪之手",
+    "maxLevel": 10,
+    "effectPerLevel": 50,
+    "effectUnit": "permille",
+    "crystalCostPerLevel": [
+      150, 203, 273, 369, 498, 673, 908, 1226, 1655, 2234
+    ],
+    "description": "窃金效率 +5%/级。每级价格 = 150 × 1.35^(n−1) 四舍五入。满级合计 +50%。"
+  },
+  {
+    "id": "foundation",
+    "name": "扩建地基",
+    "maxLevel": 5,
+    "effectPerLevel": 1,
+    "effectUnit": "count",
+    "crystalCostPerLevel": [300, 600, 1200, 2400, 4800],
+    "description": "塔位上限 +1/级（纯计数，故 effectUnit = count）。"
+  },
+  {
+    "id": "apprentice_contract",
+    "name": "学徒契约",
+    "maxLevel": 5,
+    "effectPerLevel": 10000,
+    "effectUnit": "fixed",
+    "crystalCostPerLevel": [200, 300, 450, 675, 1013],
+    "description": "建筑师「领工资」冷却 −10s/级（定点：10000 = 10s）。每级价格 = 200 × 1.5^(n−1) 四舍五入；满级后 90s → 40s。"
+  },
+  {
+    "id": "unlock_iron_gate",
+    "name": "解锁：光骑士",
+    "maxLevel": 1,
+    "effectPerLevel": 0,
+    "effectUnit": "count",
+    "crystalCostPerLevel": [1500],
+    "unlocksUnit": "iron_gate",
+    "description": "解锁军训系 T2-A「铁闸守卫」（策划案表中名「光骑士」）。"
+  },
+  {
+    "id": "unlock_mermaid_mother",
+    "name": "解锁：美人鱼老妈",
+    "maxLevel": 1,
+    "effectPerLevel": 0,
+    "effectUnit": "count",
+    "crystalCostPerLevel": [2500],
+    "unlocksUnit": "mermaid_mother",
+    "description": "解锁美女系 T3「美人鱼老妈」。"
+  },
+  {
+    "id": "unlock_goldfinger",
+    "name": "解锁：金手指",
+    "maxLevel": 1,
+    "effectPerLevel": 0,
+    "effectUnit": "count",
+    "crystalCostPerLevel": [6000],
+    "unlocksUnit": "goldfinger",
+    "description": "解锁神偷系 T5「飞贼·金手指」。这是离线单机最重要的长线留存目标。"
+  },
+  {
+    "id": "unlock_archmage_grandpa",
+    "name": "解锁：法师爷爷",
+    "maxLevel": 1,
+    "effectPerLevel": 0,
+    "effectUnit": "count",
+    "crystalCostPerLevel": [8000],
+    "unlocksUnit": "archmage_grandpa",
+    "description": "解锁法师系 T5「法师爷爷」。"
+  }
+]

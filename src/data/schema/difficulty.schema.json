@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DifficultyDef",
+  "description": "难度分级（策划案 §4.8）。hpMul / walletMul / crystalMul 为千分比；startGold / startWood 为定点。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "hpMul",
+    "walletMul",
+    "counterMode",
+    "divineArmorAllWaves",
+    "startGold",
+    "startWood",
+    "lives",
+    "openLanes",
+    "crystalMul",
+    "description"
+  ],
+  "properties": {
+    "id": { "enum": ["N1", "N2", "N3", "N4", "N5"] },
+    "name": { "type": "string", "minLength": 1, "maxLength": 12 },
+    "hpMul": { "type": "integer", "minimum": 1, "maximum": 10000, "description": "千分比。×0.60 → 600" },
+    "walletMul": { "type": "integer", "minimum": 1, "maximum": 10000, "description": "千分比。×1.40 → 1400" },
+    "counterMode": { "enum": ["compressed", "standard"] },
+    "divineArmorAllWaves": {
+      "type": "boolean",
+      "description": "N5 全程启用神圣甲（策划案 §4.8 注）"
+    },
+    "startGold": { "type": "integer", "minimum": 0, "description": "定点。3000 金 → 3000000" },
+    "startWood": { "type": "integer", "minimum": 0, "description": "定点。2000 木 → 2000000" },
+    "lives": { "type": "integer", "minimum": 1, "maximum": 999, "description": "宝库生命，纯计数" },
+    "openLanes": { "type": "integer", "minimum": 1, "maximum": 4, "description": "开放路数，纯计数" },
+    "crystalMul": { "type": "integer", "minimum": 0, "maximum": 10000, "description": "千分比。N1 = 0.6 → 600" },
+    "description": { "type": "string", "minLength": 1, "maxLength": 200 }
+  }
+}

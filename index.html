@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#101219" />
+    <title>窃金者 TD</title>
+    <!-- 内联空 favicon：避免每次加载都产生一个 /favicon.ico 404
+         （冒烟工具里那两个 404 就是它，会淹没真正的错误） -->
+    <link rel="icon" href="data:," />
+    <style>
+      /* 像素风硬性要求（策划案 §7.1）：禁止浏览器对 canvas 做平滑放大 */
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: #0a0d13;
+        overflow: hidden;
+        color: #dfe4ee;
+        font-family: ui-monospace, Consolas, monospace;
+      }
+      #game {
+        width: 100vw;
+        height: 100vh;
+        display: block;
+      }
+      #game canvas {
+        display: block;
+        /* ★ 无糊边的关键三行 */
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+        -ms-interpolation-mode: nearest-neighbor;
+      }
+      #boot-hint {
+        position: fixed;
+        left: 8px;
+        bottom: 8px;
+        font-size: 12px;
+        opacity: 0.5;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="game"></div>
+    <div id="boot-hint">
+      窃金者 TD · 点击空地建塔 / 点塔选中 · [U] 升级 [S] 出售 [Ctrl+Z] 撤销 · [空格] 暂停 [F] 倍速 ·
+      [1-6] 选塔系 · [R] 领工资 [T] 荆棘 [G] 点金 · [Q/W/E] 研究科技 · ?difficulty=N1..N5
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

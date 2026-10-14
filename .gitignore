@@ -1,0 +1,29 @@
+# ---- 依赖与构建产物（可重建，不进仓库）----
+node_modules/
+dist/
+*.tsbuildinfo
+
+# ---- 工具输出与跑批产物（都有 CLI 可重建）----
+# 说明：这些目录里放的是截图 / CSV / JSON 报告 / 浏览器 profile，
+#       生成它们的 CLI 都已提交（tools/bench/playable-smoke.ts 等），需要时重跑即可。
+tools/bench/out/
+tools/art/out/
+src/balance/out/
+
+# ⚠️ 注意：`src/art/out/` 必须【保留】—— 那里是运行时会 import 的图集
+#    （src/render/art-source.ts 会 `import atlasPngUrl from '../art/out/atlas.png'`）
+#    所以下面这行只排除 tools/art/out，不是 src/art/out。不要手滑合并。
+
+# ---- 主策划的一次性评审图（非交付物）----
+.qa-art-review.png
+
+# ---- 编辑器 / 系统 ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ---- 日志 ----
+*.log
+npm-debug.log*
+pnpm-debug.log*

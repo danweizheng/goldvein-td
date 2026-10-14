@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>窃金者 TD · 渲染性能基准</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: #0a0d13;
+        overflow: hidden;
+      }
+      #game {
+        width: 100vw;
+        height: 100vh;
+      }
+      #game canvas {
+        display: block;
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="game"></div>
+    <script type="module" src="/tools/bench/render-bench.ts"></script>
+  </body>
+</html>

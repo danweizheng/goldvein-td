@@ -1,0 +1,432 @@
+[
+  {
+    "wave": 1,
+    "prepTime": 20000,
+    "groups": [{ "enemy": "thug", "count": 6, "interval": 1200, "delay": 0 }],
+    "reward": { "gold": 50000, "wood": 5000 },
+    "hint": {
+      "recommendArmor": "light",
+      "recommendAttack": "normal",
+      "text": "把神偷放在金色高亮处"
+    }
+  },
+  {
+    "wave": 2,
+    "prepTime": 15000,
+    "groups": [{ "enemy": "thug", "count": 7, "interval": 1100, "delay": 0 }],
+    "reward": { "gold": 58000, "wood": 5000 },
+    "hint": {
+      "recommendArmor": "light",
+      "recommendAttack": "normal",
+      "text": "升到扒手：窃金系数翻倍，比多铺一座更划算"
+    }
+  },
+  {
+    "wave": 3,
+    "prepTime": 15000,
+    "groups": [{ "enemy": "thug", "count": 8, "interval": 1000, "delay": 0 }],
+    "reward": { "gold": 66000, "wood": 6000 },
+    "hint": {
+      "recommendArmor": "light",
+      "recommendAttack": "normal",
+      "text": "建造法师：光环让你的小偷偷得更快"
+    }
+  },
+  {
+    "wave": 4,
+    "prepTime": 15000,
+    "groups": [{ "enemy": "thug", "count": 9, "interval": 1000, "delay": 0 }],
+    "reward": { "gold": 78000, "wood": 7000 },
+    "hint": {
+      "recommendArmor": "light",
+      "recommendAttack": "normal",
+      "text": "下一波起有空中单位，先把射程覆盖拉开"
+    }
+  },
+  {
+    "wave": 5,
+    "prepTime": 15000,
+    "groups": [
+      { "enemy": "thug", "count": 6, "interval": 1000, "delay": 0 },
+      { "enemy": "bat", "count": 4, "interval": 1500, "delay": 5000, "path": [0, 1] }
+    ],
+    "reward": { "gold": 90000, "wood": 8000 },
+    "hint": {
+      "recommendArmor": "light",
+      "recommendAttack": "pierce",
+      "text": "空中单位来袭：多重箭能同时命中多个目标"
+    }
+  },
+  {
+    "wave": 6,
+    "prepTime": 15000,
+    "groups": [
+      { "enemy": "thug", "count": 7, "interval": 950, "delay": 0 },
+      { "enemy": "bat", "count": 3, "interval": 1500, "delay": 4000 }
+    ],
+    "reward": { "gold": 98000, "wood": 8000 },
+    "hint": {
+      "recommendArmor": "light",
+      "recommendAttack": "pierce",
+      "text": "蝙蝠移速快，用射程覆盖路径比堆攻击更有效"
+    }
+  },
+  {
+    "wave": 7,
+    "prepTime": 15000,
+    "groups": [
+      { "enemy": "thug", "count": 8, "interval": 900, "delay": 0 },
+      { "enemy": "bat", "count": 3, "interval": 1400, "delay": 4000 }
+    ],
+    "reward": { "gold": 104000, "wood": 9000 },
+    "hint": {
+      "recommendArmor": "light",
+      "recommendAttack": "pierce",
+      "text": "空军混编：多重箭是这一小节的标准答案"
+    }
+  },
+  {
+    "wave": 8,
+    "prepTime": 15000,
+    "groups": [
+      { "enemy": "thug", "count": 8, "interval": 850, "delay": 0 },
+      { "enemy": "bat", "count": 4, "interval": 1300, "delay": 3000 }
+    ],
+    "reward": { "gold": 112000, "wood": 9000 },
+    "hint": {
+      "recommendArmor": "light",
+      "recommendAttack": "pierce",
+      "text": "下一波出现重甲，魔法攻击开始变重要"
+    }
+  },
+  {
+    "wave": 9,
+    "prepTime": 15000,
+    "groups": [
+      { "enemy": "thug", "count": 10, "interval": 800, "delay": 0 },
+      { "enemy": "heavy_brute", "count": 3, "interval": 2500, "delay": 5000 }
+    ],
+    "reward": { "gold": 114000, "wood": 10000 },
+    "hint": {
+      "recommendArmor": "heavy",
+      "recommendAttack": "magic",
+      "text": "重甲出现：穿刺只有 ×0.75，魔法 ×1.5"
+    }
+  },
+  {
+    "wave": 10,
+    "prepTime": 15000,
+    "groups": [
+      { "enemy": "thug", "count": 10, "interval": 800, "delay": 0 },
+      { "enemy": "heavy_brute", "count": 4, "interval": 2500, "delay": 5000 }
+    ],
+    "reward": { "gold": 116000, "wood": 10000 },
+    "hint": {
+      "recommendArmor": "heavy",
+      "recommendAttack": "magic",
+      "text": "重装打手血厚移速慢，是窃金的好目标"
+    }
+  },
+  {
+    "wave": 11,
+    "prepTime": 15000,
+    "groups": [
+      { "enemy": "thug", "count": 8, "interval": 750, "delay": 0 },
+      { "enemy": "heavy_brute", "count": 3, "interval": 2400, "delay": 4000 },
+      { "enemy": "bat", "count": 3, "interval": 1500, "delay": 8000 }
+    ],
+    "reward": { "gold": 118000, "wood": 10000 },
+    "hint": {
+      "recommendArmor": "heavy",
+      "recommendAttack": "magic",
+      "text": "混编波：护甲多样，别只堆一种攻击类型"
+    }
+  },
+  {
+    "wave": 12,
+    "prepTime": 15000,
+    "groups": [
+      { "enemy": "thug", "count": 12, "interval": 800, "delay": 0 },
+      { "enemy": "armored_car", "count": 3, "interval": 3000, "delay": 6000 }
+    ],
+    "reward": { "gold": 120000, "wood": 10000 },
+    "hint": {
+      "recommendArmor": "fortified",
+      "recommendAttack": "siege",
+      "text": "城甲敌人：只有攻城攻击能高效击穿"
+    }
+  },
+  {
+    "wave": 13,
+    "prepTime": 15000,
+    "groups": [
+      { "enemy": "thug", "count": 10, "interval": 800, "delay": 0 },
+      { "enemy": "heavy_brute", "count": 3, "interval": 2500, "delay": 4000 },
+      { "enemy": "elite_assassin", "count": 3, "interval": 2000, "delay": 8000 }
+    ],
+    "reward": { "gold": 130000, "wood": 11000 },
+    "hint": {
+      "recommendArmor": "medium",
+      "recommendAttack": "normal",
+      "text": "精英刺客中甲、闪避 15%，普通攻击对它 ×1.5"
+    }
+  },
+  {
+    "wave": 14,
+    "prepTime": 15000,
+    "groups": [
+      { "enemy": "thug", "count": 9, "interval": 800, "delay": 0 },
+      { "enemy": "elite_assassin", "count": 5, "interval": 1800, "delay": 4000 },
+      { "enemy": "bat", "count": 3, "interval": 1500, "delay": 10000 }
+    ],
+    "reward": { "gold": 140000, "wood": 12000 },
+    "hint": {
+      "recommendArmor": "medium",
+      "recommendAttack": "normal",
+      "text": "精英刺客钱包 ×2.5，是本节的窃金爽点峰值"
+    }
+  },
+  {
+    "wave": 15,
+    "prepTime": 15000,
+    "groups": [
+      { "enemy": "heavy_brute", "count": 4, "interval": 2200, "delay": 0 },
+      { "enemy": "elite_assassin", "count": 6, "interval": 1600, "delay": 3000 },
+      { "enemy": "thug", "count": 8, "interval": 800, "delay": 6000 }
+    ],
+    "reward": { "gold": 150000, "wood": 12000 },
+    "hint": {
+      "recommendArmor": "medium",
+      "recommendAttack": "normal",
+      "text": "试试用军训系把精英刺客锁在射程里更久"
+    }
+  },
+  {
+    "wave": 16,
+    "prepTime": 15000,
+    "groups": [
+      { "enemy": "armored_car", "count": 3, "interval": 3000, "delay": 0 },
+      { "enemy": "elite_assassin", "count": 6, "interval": 1600, "delay": 4000 },
+      { "enemy": "thug", "count": 9, "interval": 800, "delay": 8000 }
+    ],
+    "reward": { "gold": 160000, "wood": 13000 },
+    "hint": {
+      "recommendArmor": "fortified",
+      "recommendAttack": "siege",
+      "text": "城甲回归：攻城塔必须就位"
+    }
+  },
+  {
+    "wave": 17,
+    "prepTime": 15000,
+    "groups": [
+      { "enemy": "thug", "count": 10, "interval": 700, "delay": 0 },
+      { "enemy": "merchant_lock", "count": 3, "interval": 2500, "delay": 4000 },
+      { "enemy": "elite_assassin", "count": 3, "interval": 2000, "delay": 8000 },
+      { "enemy": "bat", "count": 3, "interval": 1500, "delay": 12000 }
+    ],
+    "reward": { "gold": 175000, "wood": 14000 },
+    "hint": {
+      "recommendArmor": "heavy",
+      "recommendAttack": "magic",
+      "text": "钱袋锁：窃金抗性 70%，纯偷流会被卡住"
+    }
+  },
+  {
+    "wave": 18,
+    "prepTime": 15000,
+    "groups": [
+      { "enemy": "thug", "count": 14, "interval": 700, "delay": 0 },
+      { "enemy": "merchant_lock", "count": 5, "interval": 2500, "delay": 4000 },
+      { "enemy": "elite_assassin", "count": 4, "interval": 2000, "delay": 10000 }
+    ],
+    "reward": { "gold": 200000, "wood": 16000 },
+    "hint": {
+      "recommendArmor": "heavy",
+      "recommendAttack": "magic",
+      "text": "钱袋锁：窃金抗性 70%。用训导主任「罚站」降低抗性，或补输出塔"
+    }
+  },
+  {
+    "wave": 19,
+    "prepTime": 15000,
+    "groups": [
+      { "enemy": "thug", "count": 12, "interval": 700, "delay": 0 },
+      { "enemy": "merchant_lock", "count": 7, "interval": 2400, "delay": 3000 },
+      { "enemy": "heavy_brute", "count": 5, "interval": 2200, "delay": 8000 }
+    ],
+    "reward": { "gold": 215000, "wood": 17000 },
+    "hint": {
+      "recommendArmor": "heavy",
+      "recommendAttack": "magic",
+      "text": "训导主任的 −25% 抗性是钱袋锁的关键解法"
+    }
+  },
+  {
+    "wave": 20,
+    "prepTime": 20000,
+    "groups": [
+      { "enemy": "thug", "count": 9, "interval": 700, "delay": 0 },
+      { "enemy": "merchant_lock", "count": 8, "interval": 2200, "delay": 2000 },
+      { "enemy": "armored_car", "count": 3, "interval": 3000, "delay": 6000 },
+      { "enemy": "elite_assassin", "count": 4, "interval": 2000, "delay": 12000 }
+    ],
+    "reward": { "gold": 235000, "wood": 18000 },
+    "hint": {
+      "recommendArmor": "heavy",
+      "recommendAttack": "magic",
+      "text": "第 20 波后可主动蜕变结算——这是打不过时的止损出口"
+    }
+  },
+  {
+    "wave": 21,
+    "prepTime": 20000,
+    "groups": [
+      { "enemy": "thug", "count": 9, "interval": 700, "delay": 0 },
+      { "enemy": "heavy_brute", "count": 5, "interval": 2200, "delay": 0 },
+      { "enemy": "elite_assassin", "count": 5, "interval": 1800, "delay": 4000 },
+      { "enemy": "bat", "count": 6, "interval": 1300, "delay": 6000 }
+    ],
+    "reward": { "gold": 260000, "wood": 20000 },
+    "hint": {
+      "recommendArmor": "heavy",
+      "recommendAttack": "magic",
+      "text": "混合波开始：护甲全覆盖，检验阵容完备度"
+    }
+  },
+  {
+    "wave": 22,
+    "prepTime": 20000,
+    "groups": [
+      { "enemy": "armored_car", "count": 4, "interval": 2800, "delay": 0 },
+      { "enemy": "merchant_lock", "count": 7, "interval": 2200, "delay": 4000 },
+      { "enemy": "elite_assassin", "count": 6, "interval": 1800, "delay": 8000 },
+      { "enemy": "bat", "count": 9, "interval": 1200, "delay": 10000 }
+    ],
+    "reward": { "gold": 290000, "wood": 22000 },
+    "hint": {
+      "recommendArmor": "fortified",
+      "recommendAttack": "siege",
+      "text": "城甲 + 飞行混编：攻城塔与多重箭都要有"
+    }
+  },
+  {
+    "wave": 23,
+    "prepTime": 20000,
+    "groups": [
+      { "enemy": "thug", "count": 11, "interval": 600, "delay": 0 },
+      { "enemy": "heavy_brute", "count": 5, "interval": 2000, "delay": 3000 },
+      { "enemy": "merchant_lock", "count": 5, "interval": 2000, "delay": 6000 },
+      { "enemy": "elite_assassin", "count": 5, "interval": 1800, "delay": 10000 }
+    ],
+    "reward": { "gold": 330000, "wood": 25000 },
+    "hint": {
+      "recommendArmor": "heavy",
+      "recommendAttack": "magic",
+      "text": "下一波：终极 BOSS「荒兽」，城甲 + 提速光环"
+    }
+  },
+  {
+    "wave": 24,
+    "prepTime": 25000,
+    "groups": [
+      { "enemy": "boss_behemoth", "count": 1, "interval": 1000, "delay": 0 },
+      { "enemy": "thug", "count": 12, "interval": 700, "delay": 4000 },
+      { "enemy": "heavy_brute", "count": 6, "interval": 2000, "delay": 8000 },
+      { "enemy": "bat", "count": 6, "interval": 1300, "delay": 12000 }
+    ],
+    "reward": { "gold": 700000, "wood": 70000 },
+    "hint": {
+      "recommendArmor": "fortified",
+      "recommendAttack": "siege",
+      "text": "BOSS 荒兽：城甲，光环让周围敌人移速 +20%"
+    }
+  },
+  {
+    "wave": 25,
+    "prepTime": 25000,
+    "groups": [
+      { "enemy": "boss_inner_demon", "count": 1, "interval": 1000, "delay": 0 },
+      { "enemy": "elite_assassin", "count": 8, "interval": 1600, "delay": 3000 },
+      { "enemy": "thug", "count": 10, "interval": 700, "delay": 6000 },
+      { "enemy": "merchant_lock", "count": 7, "interval": 2000, "delay": 10000 }
+    ],
+    "reward": { "gold": 900000, "wood": 90000 },
+    "hint": {
+      "recommendArmor": "heavy",
+      "recommendAttack": "magic",
+      "text": "BOSS 心魔：死亡时分裂为 2 个半血分身"
+    }
+  },
+  {
+    "wave": 26,
+    "prepTime": 25000,
+    "groups": [
+      { "enemy": "boss_reincarnator", "count": 1, "interval": 1000, "delay": 0 },
+      { "enemy": "heavy_brute", "count": 8, "interval": 2000, "delay": 3000 },
+      { "enemy": "merchant_lock", "count": 8, "interval": 2000, "delay": 6000 },
+      { "enemy": "elite_assassin", "count": 9, "interval": 1500, "delay": 10000 }
+    ],
+    "reward": { "gold": 1200000, "wood": 120000 },
+    "hint": {
+      "recommendArmor": "divine",
+      "recommendAttack": "chaos",
+      "text": "BOSS 转生者：神圣甲，会复活一次（50% 血量）"
+    }
+  },
+  {
+    "wave": 27,
+    "prepTime": 20000,
+    "groups": [{ "enemy": "ascendant", "count": 1, "interval": 1000, "delay": 0 }],
+    "reward": { "gold": 2000000, "wood": 200000 },
+    "hint": {
+      "recommendArmor": "divine",
+      "recommendAttack": "chaos",
+      "text": "最终 BOSS：飞升者窃金免疫，必须用混乱攻击（飞贼 T5）击杀"
+    }
+  },
+  {
+    "wave": 28,
+    "prepTime": 20000,
+    "groups": [
+      { "enemy": "temple_guard", "count": 16, "interval": 1000, "delay": 0 },
+      { "enemy": "elite_assassin", "count": 8, "interval": 1600, "delay": 6000 },
+      { "enemy": "armored_car", "count": 4, "interval": 2800, "delay": 12000 }
+    ],
+    "reward": { "gold": 2600000, "wood": 260000 },
+    "hint": {
+      "recommendArmor": "divine",
+      "recommendAttack": "chaos",
+      "text": "神圣甲：普通/穿刺/攻城只造成 30% 伤害，只有混乱攻击全额"
+    }
+  },
+  {
+    "wave": 29,
+    "prepTime": 20000,
+    "groups": [
+      { "enemy": "temple_guard", "count": 20, "interval": 900, "delay": 0 },
+      { "enemy": "merchant_lock", "count": 5, "interval": 2200, "delay": 6000 },
+      { "enemy": "bat", "count": 4, "interval": 1300, "delay": 12000 }
+    ],
+    "reward": { "gold": 3400000, "wood": 340000 },
+    "hint": {
+      "recommendArmor": "divine",
+      "recommendAttack": "chaos",
+      "text": "倒数第二波：神圣甲与钱袋锁同时出现"
+    }
+  },
+  {
+    "wave": 30,
+    "prepTime": 25000,
+    "groups": [
+      { "enemy": "temple_guard", "count": 20, "interval": 900, "delay": 0 },
+      { "enemy": "ascendant", "count": 2, "interval": 6000, "delay": 12000 }
+    ],
+    "reward": { "gold": 5000000, "wood": 500000 },
+    "hint": {
+      "recommendArmor": "divine",
+      "recommendAttack": "chaos",
+      "text": "最后一波。只有混乱攻击能造成全额伤害。"
+    }
+  }
+]

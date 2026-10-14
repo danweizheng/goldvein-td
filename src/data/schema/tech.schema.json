@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TechDef",
+  "description": "局内科技线（策划案 §4.4.1，契约 §14.2 起改为「加法 / 乘法」双模式）。\n\neffectMode + effectUnit + effectPerLevel 三者共同决定效果：\n  · effectMode='add'  → 第 n 级加成 = base + n × effectPerLevel/1000（千分比增量，线性）\n  · effectMode='mul'  → 第 n 级乘区 = (effectPerLevel/1000)^n（千分比倍率，指数）\n\n★ 契约 §14.2 为什么要有 effectMode：§4.4.1 原本全是线性（攻击 +10%/级，5 级只 +50%），\n而血量曲线是 1.283^29 = 1373×、塔的 tier 强度只有 ~52× —— 缺一条「金币 → DPS」的指数通道，\n数据在数学上不可通关（balance-eng 实证：无限金钱 + 40 座满级飞贼仍死于第 22 波）。\n攻击/攻速/射程/窃金效率四条改为乘法后，`52.5 × 7.59 × 5.38 = 2144×` 才能压住 1373×。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "maxLevel",
+    "effectMode",
+    "target",
+    "effectPerLevel",
+    "effectUnit",
+    "costPerLevel",
+    "archivable",
+    "description"
+  ],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$", "maxLength": 32 },
+    "name": { "type": "string", "minLength": 1, "maxLength": 24 },
+    "maxLevel": { "type": "integer", "minimum": 1, "maximum": 10 },
+    "effectMode": {
+      "description": "★ 契约 §14.2 新增（必填）。add = 每级加法增量；mul = 每级乘法倍率。**引擎必须先读这个字段**，否则会把 ×1.50 当成 +150% 处理（这正是本项目第 5 类「同型不同单位」陷阱）。",
+      "enum": ["add", "mul"]
+    },
+    "target": {
+      "description": "★ 契约 §14.20 新增（必填）：这条科技**作用于什么**。此前效果由 `id` 隐含，引擎只能硬编码一张 id→槽位映射表（违反 AGENTS.md 铁律 5「代码不得内联魔法数字」），后果是「加一条科技线就要改引擎代码」。引擎应改为读本字段。",
+      "enum": ["attack", "speed", "range", "steal", "critRate", "critMul", "population", "baseLevel"]
+    },
+    "effectPerLevel": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100000,
+      "description": "每级效果。effectMode='add' 时是千分比增量（attack 原为 100 = +10%）；effectMode='mul' 时是千分比倍率（1500 = ×1.50/级，5 级 = 1.5^5 = 7.59×）。"
+    },
+    "effectUnit": {
+      "description": "effectPerLevel 的量纲。permille = 千分比（add 增量 / mul 倍率皆为千分比）；count = 纯计数（如人口 +2）。",
+      "enum": ["permille", "count"]
+    },
+    "effectCap": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "可选：叠加后的效果上限，千分比（仅 effectMode='add' 有意义）。窃金暴击率 300（=30%）、窃金暴击效率 2750（=275%）有上限，故这两条保持 add；校验器会断言该值等于 constants 里对应的 cap。"
+    },
+    "costPerLevel": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 10,
+      "items": { "$ref": "#/definitions/Cost" },
+      "description": "逐级造价，长度必须 == maxLevel。★ 契约 §15.13 口径：`支出预算 = 总收入 × 85%`（§5.4 的 80–90% 带取中）= 1,646,613；§14.12 的四个占比是**预算内的份额**，故科技总额 = 350‰ × 1,646,613 ≈ **576,000 金**（木材同比例 → 49,000）。校验器断言 8 条精确等于该总额。（上一版曾按「收入 × 35% = 677,900」算过一轮，那是把「占预算的 35%」误当成了「占收入的 35%」。）"
+    },
+    "archivable": { "type": "boolean", "description": "是否写入存档等级（4.4.2）" },
+    "requires": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 3,
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+      "description": "前置科技 id；必须真实存在于 tech.json"
+    },
+    "description": { "type": "string", "minLength": 1, "maxLength": 260 }
+  },
+  "definitions": {
+    "Cost": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["gold", "wood"],
+      "properties": {
+        "gold": { "type": "integer", "minimum": 0, "description": "定点" },
+        "wood": { "type": "integer", "minimum": 0, "description": "定点" }
+      }
+    }
+  }
+}

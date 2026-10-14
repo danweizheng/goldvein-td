@@ -1,0 +1,326 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BalanceConstants",
+  "description": "全局平衡常量（接口契约 §3.3）。必须覆盖策划案中所有出现在公式里、且不属于 units/tech/relics/difficulty 的数值常量。除 tickRate / fixedScale / waveTotal 等纯计数外，一律定点（×1000）。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "tickRate",
+    "fixedScale",
+    "waveTotal",
+    "wavePrepTimeDefault",
+    "waveSettleTime",
+    "undoWindow",
+    "undoRefundPct",
+    "baseHp",
+    "hpIndex",
+    "baseWallet",
+    "walletIndex",
+    "enemyCountBase",
+    "enemyCountSlope",
+    "levelMul",
+    "stealAtkCoef",
+    "critRateBase",
+    "critRateCap",
+    "critMulBase",
+    "critMulPerLevel",
+    "critMulCap",
+    "stealResistDefault",
+    "stealImmunityThreshold",
+    "stealWoodRatio",
+    "counterMatrixStandard",
+    "compressedFactor",
+    "compressedFloor",
+    "haltPointStopDuration",
+    "crystalDivisor",
+    "difficultyCrystalMul",
+    "ascensionMinWave",
+    "achievementMuls",
+    "firstClearCrystalMul",
+    "salaryCooldown",
+    "salaryMultiplier",
+    "brambleCooldown",
+    "brambleDuration",
+    "techArchiveFreeLevelDivisor",
+    "techArchiveCostReductionPct",
+    "map",
+    "hero",
+    "economyTargets",
+    "acceptanceTargets"
+  ],
+  "properties": {
+    "tickRate": {
+      "type": "integer",
+      "const": 60,
+      "description": "逻辑定步长 60Hz。纯计数，非定点（铁律 2）"
+    },
+    "fixedScale": {
+      "type": "integer",
+      "const": 1000,
+      "description": "定点缩放因子。纯计数，非定点（铁律 3 / 契约 §2）"
+    },
+    "waveTotal": { "type": "integer", "minimum": 1, "maximum": 100, "description": "波次总量（策划案 D3 = 30）" },
+    "wavePrepTimeDefault": { "type": "integer", "minimum": 0, "description": "默认备战时间，秒（定点）。策划案 §3.1 = 15s → 15000" },
+    "waveSettleTime": { "type": "integer", "minimum": 0, "description": "结算阶段时长，秒（定点）。§3.1 = 3s → 3000" },
+    "undoWindow": { "type": "integer", "minimum": 0, "description": "撤销窗口，秒（定点）。§3.3 = 10s → 10000" },
+    "undoRefundPct": { "type": "integer", "minimum": 0, "maximum": 1000, "description": "撤销返还比例，千分比。100% → 1000" },
+
+    "baseHp": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "§5.1 HP(1)。★ 主策划裁决改基线：原 40 → 60。三条设计意图见 schema/README「§5.1 成长曲线基线（裁决后）」。起点值，待 headless 标定。"
+    },
+    "hpIndex": {
+      "type": "integer",
+      "minimum": 1000,
+      "maximum": 3000,
+      "description": "§5.1 血量指数。★ 裁决：原 1380 (1.38) → 1283 (1.283)。与 walletIndex 的比值 1.283/1.20 = 1.069 保住原设计的净难度爬升（一阶参数），同时把 30 波后置度从 1.38^29 压到 1.283^29。"
+    },
+    "baseWallet": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "§5.1 W(1)。★ 两轮裁决：原 10 → 45（补上 §4.5.2 的单体钱包系数：蝙蝠 ×1.1 / 装甲车 ×2.0 / 精英刺客 ×2.5 / 圣殿守卫 ×3.0）→ **32**。第二轮只改这一个值来收口「支出/收入比」：32 时累计钱包 ≈1.797M → 收入 ≈1.583M → 对 §5.5 固定支出 1.293M = **81.7%**，落进 80–90% 验收带；净难度爬升 1.069 不受影响。起点值，待 headless 标定。"
+    },
+    "walletIndex": {
+      "type": "integer",
+      "minimum": 1000,
+      "maximum": 3000,
+      "description": "§5.1 钱包指数。★ 裁决：原 1290 (1.29) → 1200 (1.20)。1.20^29 = 198×（原 1.29^29 = 1606×），压平「第 26–30 波独占 73–76% 钱包」的后置度，让前 25 波有真实经济铺塔。"
+    },
+    "enemyCountBase": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "§5.1 Q(n) = 6 + floor(0.8n) → 6000。★ 裁决（A3/A4/A8）：Q(n) 降级为「规划参考」，**不是逐波硬要求**；硬门禁改为「非 BOSS 波敌人总数单调不减」（见 validate-data.ts）。"
+    },
+    "enemyCountSlope": { "type": "integer", "minimum": 0, "description": "§5.1 数量斜率 0.8 → 800（规划参考，见 enemyCountBase 说明）" },
+
+    "levelMul": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": { "type": "integer", "minimum": 1000 },
+      "description": "§4.1.2 等级系数，恰好 5 个元素：[1000,1350,1850,2600,3800]"
+    },
+    "stealAtkCoef": { "type": "integer", "minimum": 0, "description": "§4.1.2 (1 + 0.02 × 攻击力) 的系数 20" },
+    "critRateBase": { "type": "integer", "minimum": 0, "maximum": 1000, "description": "§4.1.2 暴击率基础 5% → 50" },
+    "critRateCap": { "type": "integer", "minimum": 0, "maximum": 1000, "description": "§4.4.1 暴击率上限 30% → 300" },
+    "critMulBase": { "type": "integer", "minimum": 1000, "description": "§4.1.2 暴击倍率基础 150% → 1500" },
+    "critMulPerLevel": { "type": "integer", "minimum": 0, "description": "§4.1.2 +25%/级 → 250" },
+    "critMulCap": { "type": "integer", "minimum": 1000, "description": "§4.4.1 暴击倍率上限 275% → 2750" },
+    "stealResistDefault": { "type": "integer", "minimum": 0, "maximum": 1000, "description": "§4.1.2 缺省窃金抗性 0" },
+    "stealImmunityThreshold": { "type": "integer", "minimum": 0, "maximum": 1000, "description": "§8.5 抗性达到该值即窃金免疫 → 1000" },
+    "stealWoodRatio": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "§4.1.1 窃金附带窃木比例，千分比。★ 终值 **3**（= 3‰）。历史：data-arch 推定 10（1%）→ 首轮裁决 30 → [契约 §14.5](接口契约) 指出 30 读作 3%（差 10 倍），裁决回 3。按 ~1.8M 累计钱包、70% 覆盖率计 ≈ 3,774 木，缺口由小精灵产能承担。"
+    },
+
+    "counterMatrixStandard": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "description": "§4.3 标准克制矩阵。行 = 攻击类型 [普通,穿刺,魔法,攻城,混乱]，列 = 护甲 [轻,中,重,城,神圣]。定点倍率。",
+      "items": {
+        "type": "array",
+        "minItems": 5,
+        "maxItems": 5,
+        "items": { "type": "integer", "minimum": 0, "maximum": 5000 }
+      }
+    },
+    "compressedFactor": { "type": "integer", "minimum": 0, "description": "§4.3 压缩系数 0.5 → 500" },
+    "compressedFloor": { "type": "integer", "minimum": 0, "description": "§4.3 压缩下限 0.6 → 600" },
+
+    "haltPointStopDuration": { "type": "integer", "minimum": 0, "description": "§4.2.4/§4.6 ★停顿点停留 0.6s → 600" },
+
+    "crystalDivisor": { "type": "integer", "minimum": 1, "description": "§4.7.1 结晶除数 1000" },
+    "difficultyCrystalMul": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["N1", "N2", "N3", "N4", "N5"],
+      "properties": {
+        "N1": { "type": "integer", "minimum": 0 },
+        "N2": { "type": "integer", "minimum": 0 },
+        "N3": { "type": "integer", "minimum": 0 },
+        "N4": { "type": "integer", "minimum": 0 },
+        "N5": { "type": "integer", "minimum": 0 }
+      },
+      "description": "§4.7.1 难度系数，千分比：600/1000/1600/2400/3600"
+    },
+    "ascensionMinWave": { "type": "integer", "minimum": 1, "maximum": 30, "description": "§4.7.1 可主动蜕变的最早波次 20" },
+    "achievementMuls": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "no_leak",
+        "no_ascension",
+        "speedrun",
+        "single_line",
+        "no_mage",
+        "big_spender",
+        "block_master",
+        "advanced_challenges"
+      ],
+      "properties": {
+        "no_leak": { "type": "integer", "minimum": 0 },
+        "no_ascension": { "type": "integer", "minimum": 0 },
+        "speedrun": { "type": "integer", "minimum": 0 },
+        "single_line": { "type": "integer", "minimum": 0 },
+        "no_mage": { "type": "integer", "minimum": 0 },
+        "big_spender": { "type": "integer", "minimum": 0 },
+        "block_master": { "type": "integer", "minimum": 0 },
+        "advanced_challenges": { "type": "integer", "minimum": 0 }
+      },
+      "description": "§4.7.3 成就系数，千分比。advanced_challenges 区间 ×1.2–2.0 取下限 1200"
+    },
+    "firstClearCrystalMul": { "type": "integer", "minimum": 0, "description": "§6.3 第 7 步「首次结算翻倍」→ 2000" },
+
+    "salaryCooldown": { "type": "integer", "minimum": 0, "description": "§4.1.4 领工资冷却 90s → 90000" },
+    "salaryMultiplier": { "type": "integer", "minimum": 0, "description": "§4.1.4 60 × 基地每秒产出 → 60000" },
+    "brambleCooldown": { "type": "integer", "minimum": 0, "description": "§4.1.4 荆棘丛林冷却 120s → 120000" },
+    "brambleDuration": { "type": "integer", "minimum": 0, "description": "§4.1.4 荆棘丛林硬控 3s → 3000" },
+
+    "techArchiveFreeLevelDivisor": { "type": "integer", "minimum": 1, "description": "§4.4.2 免费起始等级 = floor(存档等级 / 2) → 2" },
+    "techArchiveCostReductionPct": { "type": "integer", "minimum": 0, "maximum": 1000, "description": "§4.4.2 每级存档等级降低造价 8% → 80" },
+
+    "map": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "laneCount",
+        "pathLengthCells",
+        "buildableWidthCells",
+        "vaultSizeCells",
+        "haltPointsPerLane"
+      ],
+      "properties": {
+        "laneCount": { "type": "integer", "minimum": 1, "maximum": 8, "description": "§4.6 总路径数 4，纯计数" },
+        "pathLengthCells": { "type": "integer", "minimum": 1, "description": "§4.6 路径长度约 40 格 → 40000" },
+        "buildableWidthCells": { "type": "integer", "minimum": 0, "description": "§4.6 路径两侧各 2 格 → 2000" },
+        "vaultSizeCells": { "type": "integer", "minimum": 1, "description": "§4.6 宝库 5×5 → 5000" },
+        "haltPointsPerLane": { "type": "integer", "minimum": 0, "maximum": 4, "description": "§4.6 每路停顿点数 1，纯计数" }
+      },
+      "description": "§4.6 地图与路径常量"
+    },
+    "hero": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["maxCount", "costs", "equipSlots", "morphLevels", "expFromSteal"],
+      "properties": {
+        "maxCount": { "type": "integer", "minimum": 0, "maximum": 2, "description": "§4.2.7 最多 2 个，纯计数" },
+        "costs": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": { "$ref": "#/definitions/Cost" },
+          "description": "§4.2.7 第 1 个 30000金/3000木，第 2 个 70000金/7000木（M6）"
+        },
+        "equipSlots": { "type": "integer", "minimum": 0, "maximum": 6, "description": "§4.2.7 装备 6 格，纯计数" },
+        "morphLevels": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["level", "attackPct"],
+            "properties": {
+              "level": { "type": "integer", "minimum": 1, "maximum": 30, "description": "纯计数" },
+              "attackPct": { "type": "integer", "minimum": 0, "description": "千分比。+50% → 500" }
+            }
+          },
+          "description": "§4.2.7 10/20/30 级变身"
+        },
+        "expFromSteal": { "type": "integer", "minimum": 0, "maximum": 1000, "description": "§4.2.7 窃金也涨经验（千分比权重）→ 1000" }
+      },
+      "description": "§4.2.7 英雄系常量（M6 上线，本期数据仅登记）"
+    },
+    "economyTargets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stealShareMin", "stealShareMax", "killShareMin", "killShareMax", "spendRatios"],
+      "properties": {
+        "stealShareMin": { "type": "integer", "minimum": 0, "maximum": 1000, "description": "§4.1.1 窃金占比下限 70% → 700" },
+        "stealShareMax": { "type": "integer", "minimum": 0, "maximum": 1000, "description": "§4.1.1 窃金占比上限 80% → 800" },
+        "killShareMin": { "type": "integer", "minimum": 0, "maximum": 1000, "description": "§4.1.1 击杀奖励占比下限 15% → 150" },
+        "killShareMax": { "type": "integer", "minimum": 0, "maximum": 1000, "description": "§4.1.1 击杀奖励占比上限 20% → 200" },
+        "spendRatios": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["tower", "tech", "sprite", "equipment"],
+          "properties": {
+            "tower": { "type": "integer", "minimum": 0, "maximum": 1000, "description": "§14.12 塔建造升级 50% → 500（原 55%）" },
+            "tech": { "type": "integer", "minimum": 0, "maximum": 1000, "description": "§14.12 科技研究 35% → 350（原 28%；§14.2 把科技改成了主强度来源，投入必须匹配）" },
+            "sprite": { "type": "integer", "minimum": 0, "maximum": 1000, "description": "§14.12 小精灵与产能 8% → 80（原 10%）" },
+            "equipment": { "type": "integer", "minimum": 0, "maximum": 1000, "description": "§14.12 装备与杂项 7% → 70（不变）" }
+          },
+          "description": "§14.12 / §15.13 支出侧目标，千分比，合计 1000。★ 口径（§15.13）：这四个占比是**支出预算内的份额**，而 `支出预算 = 总收入 × 85%`（§5.4 的 80–90% 带取中）。故「占预算 35%」⇔「占收入 29.75%」—— 两个口径必须分开写，写混就会算出 677,900 这种错数。"
+        }
+      },
+      "description": "§4.1.1 / §14.12 经济分配目标（验收目标值，非运行时公式常量）"
+    },
+    "acceptanceTargets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "stealCoverageMin",
+        "stealCoverageMax",
+        "spendRatioMin",
+        "spendRatioMax",
+        "leakRateMax",
+        "waveEndGoldMin",
+        "waveEndGoldMax",
+        "solvabilityMax",
+        "solvabilityComfortMin",
+        "solvabilityComfortMax",
+        "solvabilityComfortWaves",
+        "techLevelsAtWave20Min",
+        "techLevelsAtWave20Max",
+        "blockExtraStealMin"
+      ],
+      "properties": {
+        "stealCoverageMin": { "type": "integer", "description": "§5.4 窃金覆盖率下限 650" },
+        "stealCoverageMax": { "type": "integer", "description": "§5.4 窃金覆盖率上限 800" },
+        "spendRatioMin": { "type": "integer", "description": "§5.4 支出/收入比下限 800" },
+        "spendRatioMax": { "type": "integer", "description": "§5.4 支出/收入比上限 900" },
+        "leakRateMax": { "type": "integer", "description": "§5.4 漏怪率上限 20（千分比 = 2%）" },
+        "waveEndGoldMin": { "type": "integer", "description": "§5.4 波末金币余量下限 100" },
+        "waveEndGoldMax": { "type": "integer", "description": "§5.4 波末金币余量上限 400" },
+        "solvabilityMax": {
+          "type": "integer",
+          "description": "★ 契约 §15.4 新增（替代被删除的塔数目标）：可通关性**硬界** —— 需求DPS/可达DPS上界 ≤ 1000（=1.0），全部 30 波 × 5 难度。\n\n配的哪个上界：**最大军队上界**（50 座 T5 + 满级科技，**与波次无关**）。它证明「存在一套阵容能过」，是**存在性证明**，故意宽松 —— N2 只有 0.17× 属正常。⚠️ 它是**成本无关的**（公式里没有 `costPerLevel`），所以改科技造价不会让它变化。\n\n实现位置：本轮 tests/sim/solvability.spec.ts（balance-eng），M1 迁移进 tools/validate-data.ts（契约 §14.4）。"
+        },
+        "solvabilityComfortMin": {
+          "type": "integer",
+          "description": "★ 契约 §15.4 新增：舒适带下限 200（=0.2）——低于它说明该波对正常玩家太轻松。\n\n配的哪个上界：**经济感知上界**（到该波时合理经济所能支撑的阵容），**不是** solvabilityMax 那个最大军队上界。后者与波次无关，拿它当逐波标尺只会得到恒 ~0 的无意义读数（实测 w10 0.00×、w20 0.01–0.02× —— 这正是「一个空的测量区域给出决定性否定结论」的同型陷阱）。经济感知上界由 balance-eng 在 ttk-analysis.ts 实现。"
+        },
+        "solvabilityComfortMax": {
+          "type": "integer",
+          "description": "★ 契约 §15.4 新增：舒适带上限 600（=0.6）——高于它说明该波对正常玩家太绝望。同样配**经济感知上界**（见 solvabilityComfortMin）。"
+        },
+        "solvabilityComfortWaves": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": { "type": "integer", "minimum": 1, "maximum": 30 },
+          "description": "★ 舒适带适用的波次（§15.4：第 10 波与第 20 波），纯计数"
+        },
+        "techLevelsAtWave20Min": { "type": "integer", "description": "§5.4 第 20 波科技等级下限 10，纯计数" },
+        "techLevelsAtWave20Max": { "type": "integer", "description": "§5.4 第 20 波科技等级上限 16，纯计数" },
+        "blockExtraStealMin": { "type": "integer", "description": "§5.4/§10.2 军训系存在性下限 250（=25%，千分比）。⚠️ 契约 §14.15 已把 Q1 判据改为 balanced vs noblock 真反事实，本项降级为诊断指标。" }
+      },
+      "description": "§5.4 单局经济验收指标 + §10.2 Q1 门槛（CI 门禁目标值）。★ §15.4 删除了 towersAtWave10Min/Max（塔数是弱代理指标：18 座 T1 与 6 座 T5 完全不同），替代为 solvability 硬界 + 舒适带。"
+    }
+  },
+  "definitions": {
+    "Cost": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["gold", "wood"],
+      "properties": {
+        "gold": { "type": "integer", "minimum": 0, "description": "定点" },
+        "wood": { "type": "integer", "minimum": 0, "description": "定点" }
+      }
+    }
+  }
+}

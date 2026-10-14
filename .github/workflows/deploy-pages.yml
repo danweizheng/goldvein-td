@@ -1,0 +1,80 @@
+name: Deploy to GitHub Pages
+
+# 部署到 GitHub Pages。
+#
+# ## 为什么部署前要跑完整门禁
+#
+# 本项目的门禁是**一条一条踩出来的**（见 AGENTS.md 铁律 8 与 docs/接口契约 §23.3）。
+# 其中几条恰恰是"部署出去才发现不对"的那类：
+#   · `validate-data` —— 9 张表 / 140 条目 / 62 项结构检查（含"数据能否通关"）
+#   · `typecheck`     —— 全仓 tsc；曾经 `pnpm lint` 对 .ts 是**空操作**，靠它兜底
+#   · `test`          —— 897 用例，含 solvability / 出怪守恒 / 变异覆盖 / 实验后门
+#
+# 所以这里**不省**：宁可部署慢 1 分钟，也不要推上去一个红的产物。
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Validate data (9 tables / 62 structural checks)
+        run: pnpm run validate-data
+
+      - name: Typecheck
+        run: pnpm run typecheck
+
+      - name: Test (897 cases, incl. solvability / spawn-conservation / mapping-coverage)
+        run: pnpm run test
+
+      - name: Build
+        run: pnpm run build
+
+      # dist/ 必须是完整的静态站点（含 public/assets/audio 的 40 个音频）
+      - name: Show artifact size
+        run: du -sh dist && find dist -type f | wc -l
+
+      - uses: actions/configure-pages@v5
+        with:
+          # 首次部署时自动把 Pages 的 Source 设为 "GitHub Actions"
+          enablement: true
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

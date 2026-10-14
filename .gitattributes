@@ -1,0 +1,12 @@
+# 统一行尾 + 明确二进制文件，避免 Windows/Linux 之间产生无意义 diff。
+# 本项目源码本身是纯 LF（已核对：0 个 CR），所以 eol=lf 不会造成内容改动。
+* text=auto eol=lf
+
+# 二进制：绝不能当文本处理（否则会损坏图集与音频）
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ogg binary
+*.mp3 binary
+*.woff2 binary

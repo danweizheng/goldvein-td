@@ -1,0 +1,119 @@
+{
+  "tickRate": 60,
+  "fixedScale": 1000,
+
+  "waveTotal": 30,
+  "wavePrepTimeDefault": 15000,
+  "waveSettleTime": 3000,
+  "undoWindow": 10000,
+  "undoRefundPct": 1000,
+
+  "baseHp": 60000,
+  "hpIndex": 1283,
+  "baseWallet": 32000,
+  "walletIndex": 1200,
+  "enemyCountBase": 6000,
+  "enemyCountSlope": 800,
+
+  "levelMul": [1000, 1350, 1850, 2600, 3800],
+  "stealAtkCoef": 20,
+  "critRateBase": 50,
+  "critRateCap": 300,
+  "critMulBase": 1500,
+  "critMulPerLevel": 250,
+  "critMulCap": 2750,
+  "stealResistDefault": 0,
+  "stealImmunityThreshold": 1000,
+  "stealWoodRatio": 3,
+
+  "counterMatrixStandard": [
+    [1000, 1500, 1000, 700, 300],
+    [2000, 750, 1000, 350, 300],
+    [1250, 750, 1500, 350, 500],
+    [1000, 500, 1000, 2000, 300],
+    [1250, 1250, 1250, 1250, 1000]
+  ],
+  "compressedFactor": 500,
+  "compressedFloor": 600,
+
+  "haltPointStopDuration": 600,
+
+  "crystalDivisor": 1000,
+  "difficultyCrystalMul": {
+    "N1": 600,
+    "N2": 1000,
+    "N3": 1600,
+    "N4": 2400,
+    "N5": 3600
+  },
+  "ascensionMinWave": 20,
+  "achievementMuls": {
+    "no_leak": 1250,
+    "no_ascension": 1500,
+    "speedrun": 1200,
+    "single_line": 1300,
+    "no_mage": 1150,
+    "big_spender": 1100,
+    "block_master": 1150,
+    "advanced_challenges": 1200
+  },
+  "firstClearCrystalMul": 2000,
+
+  "salaryCooldown": 90000,
+  "salaryMultiplier": 60000,
+  "brambleCooldown": 120000,
+  "brambleDuration": 3000,
+
+  "techArchiveFreeLevelDivisor": 2,
+  "techArchiveCostReductionPct": 80,
+
+  "map": {
+    "laneCount": 4,
+    "pathLengthCells": 40000,
+    "buildableWidthCells": 2000,
+    "vaultSizeCells": 5000,
+    "haltPointsPerLane": 1
+  },
+  "hero": {
+    "maxCount": 2,
+    "costs": [
+      { "gold": 30000000, "wood": 3000000 },
+      { "gold": 70000000, "wood": 7000000 }
+    ],
+    "equipSlots": 6,
+    "morphLevels": [
+      { "level": 10, "attackPct": 500 },
+      { "level": 20, "attackPct": 1000 },
+      { "level": 30, "attackPct": 2000 }
+    ],
+    "expFromSteal": 1000
+  },
+  "economyTargets": {
+    "stealShareMin": 700,
+    "stealShareMax": 800,
+    "killShareMin": 150,
+    "killShareMax": 200,
+    "spendRatios": {
+      "tower": 500,
+      "tech": 350,
+      "sprite": 80,
+      "equipment": 70
+    }
+  },
+  "acceptanceTargets": {
+    "stealCoverageMin": 650,
+    "stealCoverageMax": 800,
+    "spendRatioMin": 800,
+    "spendRatioMax": 900,
+    "leakRateMax": 20,
+    "waveEndGoldMin": 100,
+    "waveEndGoldMax": 400,
+    "solvabilityMax": 1000,
+    "solvabilityComfortMin": 200,
+    "solvabilityComfortMax": 600,
+    "solvabilityComfortWaves": [10, 20],
+    "techLevelsAtWave20Min": 10,
+    "techLevelsAtWave20Max": 16,
+    "blockExtraStealMin": 250
+  }
+}

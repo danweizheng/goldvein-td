@@ -1,0 +1,882 @@
+{
+  "imageWidth": 1024,
+  "imageHeight": 512,
+  "frames": {
+    "archer:attack": {
+      "x": 777,
+      "y": 1,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "archer:idle": {
+      "x": 826,
+      "y": 1,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "archer:upgrade": {
+      "x": 875,
+      "y": 1,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "archer_mom:attack": {
+      "x": 924,
+      "y": 1,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "archer_mom:idle": {
+      "x": 973,
+      "y": 1,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "archer_mom:upgrade": {
+      "x": 1,
+      "y": 98,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "archmage_grandpa:attack": {
+      "x": 50,
+      "y": 98,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "archmage_grandpa:idle": {
+      "x": 99,
+      "y": 98,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "archmage_grandpa:upgrade": {
+      "x": 148,
+      "y": 98,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "armored_car:idle": {
+      "x": 197,
+      "y": 294,
+      "w": 32,
+      "h": 32,
+      "anchorX": 16,
+      "anchorY": 25
+    },
+    "armored_car:walk": {
+      "x": 230,
+      "y": 294,
+      "w": 32,
+      "h": 32,
+      "anchorX": 16,
+      "anchorY": 25
+    },
+    "ascendant:idle": {
+      "x": 1,
+      "y": 1,
+      "w": 96,
+      "h": 96,
+      "anchorX": 48,
+      "anchorY": 73
+    },
+    "ascendant:walk": {
+      "x": 98,
+      "y": 1,
+      "w": 96,
+      "h": 96,
+      "anchorX": 48,
+      "anchorY": 73
+    },
+    "bat:idle": {
+      "x": 263,
+      "y": 294,
+      "w": 32,
+      "h": 32,
+      "anchorX": 16,
+      "anchorY": 25
+    },
+    "bat:walk": {
+      "x": 296,
+      "y": 294,
+      "w": 32,
+      "h": 32,
+      "anchorX": 16,
+      "anchorY": 25
+    },
+    "boss_behemoth:idle": {
+      "x": 195,
+      "y": 1,
+      "w": 96,
+      "h": 96,
+      "anchorX": 48,
+      "anchorY": 73
+    },
+    "boss_behemoth:walk": {
+      "x": 292,
+      "y": 1,
+      "w": 96,
+      "h": 96,
+      "anchorX": 48,
+      "anchorY": 73
+    },
+    "boss_inner_demon:idle": {
+      "x": 389,
+      "y": 1,
+      "w": 96,
+      "h": 96,
+      "anchorX": 48,
+      "anchorY": 73
+    },
+    "boss_inner_demon:walk": {
+      "x": 486,
+      "y": 1,
+      "w": 96,
+      "h": 96,
+      "anchorX": 48,
+      "anchorY": 73
+    },
+    "boss_reincarnator:idle": {
+      "x": 583,
+      "y": 1,
+      "w": 96,
+      "h": 96,
+      "anchorX": 48,
+      "anchorY": 73
+    },
+    "boss_reincarnator:walk": {
+      "x": 680,
+      "y": 1,
+      "w": 96,
+      "h": 96,
+      "anchorX": 48,
+      "anchorY": 73
+    },
+    "cannon_tower:attack": {
+      "x": 197,
+      "y": 98,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "cannon_tower:idle": {
+      "x": 246,
+      "y": 98,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "cannon_tower:upgrade": {
+      "x": 295,
+      "y": 98,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "cutpurse:attack": {
+      "x": 344,
+      "y": 98,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "cutpurse:idle": {
+      "x": 393,
+      "y": 98,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "cutpurse:upgrade": {
+      "x": 442,
+      "y": 98,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "discipline_dean:attack": {
+      "x": 491,
+      "y": 98,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "discipline_dean:idle": {
+      "x": 540,
+      "y": 98,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "discipline_dean:upgrade": {
+      "x": 589,
+      "y": 98,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "drill_instructor:attack": {
+      "x": 638,
+      "y": 98,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "drill_instructor:idle": {
+      "x": 687,
+      "y": 98,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "drill_instructor:upgrade": {
+      "x": 736,
+      "y": 98,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "elite_assassin:idle": {
+      "x": 785,
+      "y": 98,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 37
+    },
+    "elite_assassin:walk": {
+      "x": 834,
+      "y": 98,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 37
+    },
+    "goldfinger:attack": {
+      "x": 883,
+      "y": 98,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "goldfinger:idle": {
+      "x": 932,
+      "y": 98,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "goldfinger:upgrade": {
+      "x": 1,
+      "y": 147,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "grandmaster:attack": {
+      "x": 50,
+      "y": 147,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "grandmaster:idle": {
+      "x": 99,
+      "y": 147,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "grandmaster:upgrade": {
+      "x": 148,
+      "y": 147,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "heavy_brute:idle": {
+      "x": 329,
+      "y": 294,
+      "w": 32,
+      "h": 32,
+      "anchorX": 16,
+      "anchorY": 25
+    },
+    "heavy_brute:walk": {
+      "x": 362,
+      "y": 294,
+      "w": 32,
+      "h": 32,
+      "anchorX": 16,
+      "anchorY": 25
+    },
+    "hellfire:attack": {
+      "x": 197,
+      "y": 147,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "hellfire:idle": {
+      "x": 246,
+      "y": 147,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "hellfire:upgrade": {
+      "x": 295,
+      "y": 147,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "howitzer:attack": {
+      "x": 344,
+      "y": 147,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "howitzer:idle": {
+      "x": 393,
+      "y": 147,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "howitzer:upgrade": {
+      "x": 442,
+      "y": 147,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "ice_beauty:attack": {
+      "x": 491,
+      "y": 147,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "ice_beauty:idle": {
+      "x": 540,
+      "y": 147,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "ice_beauty:upgrade": {
+      "x": 589,
+      "y": 147,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "iron_gate:attack": {
+      "x": 638,
+      "y": 147,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "iron_gate:idle": {
+      "x": 687,
+      "y": 147,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "iron_gate:upgrade": {
+      "x": 736,
+      "y": 147,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "mage:attack": {
+      "x": 785,
+      "y": 147,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "mage:idle": {
+      "x": 834,
+      "y": 147,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "mage:upgrade": {
+      "x": 883,
+      "y": 147,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "mage_dad:attack": {
+      "x": 932,
+      "y": 147,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "mage_dad:idle": {
+      "x": 1,
+      "y": 196,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "mage_dad:upgrade": {
+      "x": 50,
+      "y": 196,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "master_thief:attack": {
+      "x": 99,
+      "y": 196,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "master_thief:idle": {
+      "x": 148,
+      "y": 196,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "master_thief:upgrade": {
+      "x": 197,
+      "y": 196,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "merchant_lock:idle": {
+      "x": 395,
+      "y": 294,
+      "w": 32,
+      "h": 32,
+      "anchorX": 16,
+      "anchorY": 25
+    },
+    "merchant_lock:walk": {
+      "x": 428,
+      "y": 294,
+      "w": 32,
+      "h": 32,
+      "anchorX": 16,
+      "anchorY": 25
+    },
+    "mermaid:attack": {
+      "x": 246,
+      "y": 196,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "mermaid:idle": {
+      "x": 295,
+      "y": 196,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "mermaid:upgrade": {
+      "x": 344,
+      "y": 196,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "mermaid_mother:attack": {
+      "x": 393,
+      "y": 196,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "mermaid_mother:idle": {
+      "x": 442,
+      "y": 196,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "mermaid_mother:upgrade": {
+      "x": 491,
+      "y": 196,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "multi_archer:attack": {
+      "x": 540,
+      "y": 196,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "multi_archer:idle": {
+      "x": 589,
+      "y": 196,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "multi_archer:upgrade": {
+      "x": 638,
+      "y": 196,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "pickpocket:attack": {
+      "x": 687,
+      "y": 196,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "pickpocket:idle": {
+      "x": 736,
+      "y": 196,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "pickpocket:upgrade": {
+      "x": 785,
+      "y": 196,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "principal_mom:attack": {
+      "x": 834,
+      "y": 196,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "principal_mom:idle": {
+      "x": 883,
+      "y": 196,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "principal_mom:upgrade": {
+      "x": 932,
+      "y": 196,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "shaman:attack": {
+      "x": 1,
+      "y": 245,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "shaman:idle": {
+      "x": 50,
+      "y": 245,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "shaman:upgrade": {
+      "x": 99,
+      "y": 245,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "sprite_advanced:attack": {
+      "x": 148,
+      "y": 245,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "sprite_advanced:idle": {
+      "x": 197,
+      "y": 245,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "sprite_advanced:upgrade": {
+      "x": 246,
+      "y": 245,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "sprite_clumsy:attack": {
+      "x": 295,
+      "y": 245,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "sprite_clumsy:idle": {
+      "x": 344,
+      "y": 245,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "sprite_clumsy:upgrade": {
+      "x": 393,
+      "y": 245,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "sprite_common:attack": {
+      "x": 442,
+      "y": 245,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "sprite_common:idle": {
+      "x": 491,
+      "y": 245,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "sprite_common:upgrade": {
+      "x": 540,
+      "y": 245,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "sprite_indulgent:attack": {
+      "x": 589,
+      "y": 245,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "sprite_indulgent:idle": {
+      "x": 638,
+      "y": 245,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "sprite_indulgent:upgrade": {
+      "x": 687,
+      "y": 245,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "tech_tower:attack": {
+      "x": 736,
+      "y": 245,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "tech_tower:idle": {
+      "x": 785,
+      "y": 245,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "tech_tower:upgrade": {
+      "x": 834,
+      "y": 245,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "temple_guard:idle": {
+      "x": 461,
+      "y": 294,
+      "w": 32,
+      "h": 32,
+      "anchorX": 16,
+      "anchorY": 25
+    },
+    "temple_guard:walk": {
+      "x": 494,
+      "y": 294,
+      "w": 32,
+      "h": 32,
+      "anchorX": 16,
+      "anchorY": 25
+    },
+    "thug:idle": {
+      "x": 527,
+      "y": 294,
+      "w": 32,
+      "h": 32,
+      "anchorX": 16,
+      "anchorY": 25
+    },
+    "thug:walk": {
+      "x": 560,
+      "y": 294,
+      "w": 32,
+      "h": 32,
+      "anchorX": 16,
+      "anchorY": 25
+    },
+    "watcher:attack": {
+      "x": 883,
+      "y": 245,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "watcher:idle": {
+      "x": 932,
+      "y": 245,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "watcher:upgrade": {
+      "x": 1,
+      "y": 294,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "worker:attack": {
+      "x": 50,
+      "y": 294,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "worker:idle": {
+      "x": 99,
+      "y": 294,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    },
+    "worker:upgrade": {
+      "x": 148,
+      "y": 294,
+      "w": 48,
+      "h": 48,
+      "anchorX": 24,
+      "anchorY": 43
+    }
+  },
+  "meta": {
+    "generator": "src/art/procedural.ts",
+    "version": 1
+  }
+}

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "gold_hook",
+    "name": "倒挂金钩",
+    "cost": { "gold": 9000000, "wood": 0 },
+    "effects": [{ "kind": "stealPct", "value": 1000 }],
+    "equipSlot": "tool",
+    "icon": "ui/icon_gold_hook",
+    "sprite": "equipment/gold_hook",
+    "description": "窃金效率 +100%。原作明确提到此装备让偷钱速度大增 N 倍——本作第一优先级装备。",
+    "availableFrom": "M6"
+  },
+  {
+    "id": "midas_glove",
+    "name": "点金手套",
+    "cost": { "gold": 7500000, "wood": 0 },
+    "effects": [{ "kind": "critRate", "value": 150 }],
+    "equipSlot": "glove",
+    "icon": "ui/icon_midas_glove",
+    "sprite": "equipment/midas_glove",
+    "description": "窃金暴击率 +15%（千分比 150）。",
+    "availableFrom": "M6"
+  },
+  {
+    "id": "gale_boots",
+    "name": "疾风靴",
+    "cost": { "gold": 5400000, "wood": 0 },
+    "effects": [{ "kind": "speedPct", "value": 400 }],
+    "equipSlot": "boots",
+    "icon": "ui/icon_gale_boots",
+    "sprite": "equipment/gale_boots",
+    "description": "移速 +40%（千分比 400）。",
+    "availableFrom": "M6"
+  },
+  {
+    "id": "ring_of_greed",
+    "name": "贪婪之戒",
+    "cost": { "gold": 15000000, "wood": 0 },
+    "effects": [{ "kind": "bountyPct", "value": 500 }],
+    "equipSlot": "ring",
+    "icon": "ui/icon_ring_of_greed",
+    "sprite": "equipment/ring_of_greed",
+    "description": "击杀奖励 +50%（千分比 500）。",
+    "availableFrom": "M6"
+  },
+  {
+    "id": "hourglass",
+    "name": "时之沙漏",
+    "cost": { "gold": 13500000, "wood": 0 },
+    "effects": [{ "kind": "cooldownPct", "value": -200 }],
+    "equipSlot": "trinket",
+    "icon": "ui/icon_hourglass",
+    "sprite": "equipment/hourglass",
+    "description": "技能冷却 −20%（千分比 −200）。",
+    "availableFrom": "M6"
+  },
+  {
+    "id": "pickpocket_tool",
+    "name": "探囊取物",
+    "cost": { "gold": 12000000, "wood": 0 },
+    "effects": [{ "kind": "rangePct", "value": 150, "targetLine": "thief" }],
+    "equipSlot": "weapon",
+    "icon": "ui/icon_pickpocket_tool",
+    "sprite": "equipment/pickpocket_tool",
+    "description": "神偷系射程 +15%（千分比 150，仅 thief 塔系生效）。",
+    "availableFrom": "M6"
+  }
+]

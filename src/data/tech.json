@@ -1,0 +1,148 @@
+[
+  {
+    "id": "steal_efficiency",
+    "name": "窃金效率",
+    "maxLevel": 5,
+    "effectMode": "mul",
+    "target": "steal",
+    "effectPerLevel": 1120,
+    "effectUnit": "permille",
+    "costPerLevel": [
+      { "gold": 2200000, "wood": 220000 },
+      { "gold": 4600000, "wood": 460000 },
+      { "gold": 9600000, "wood": 960000 },
+      { "gold": 20200000, "wood": 2020000 },
+      { "gold": 41400000, "wood": 4140000 }
+    ],
+    "archivable": true,
+    "description": "每级 ×1.12 窃金（乘法），5 级满 1.76×。本作第一优先科技。单线总投入 78,000 金 / 7,800 木（契约 §15.13 口径：科技 = 350‰ × 支出预算 1,646,613 ≈ 576,000）。"
+  },
+  {
+    "id": "attack",
+    "name": "攻击强化",
+    "maxLevel": 5,
+    "effectMode": "mul",
+    "target": "attack",
+    "effectPerLevel": 1500,
+    "effectUnit": "permille",
+    "costPerLevel": [
+      { "gold": 1900000, "wood": 190000 },
+      { "gold": 4000000, "wood": 400000 },
+      { "gold": 8300000, "wood": 830000 },
+      { "gold": 17400000, "wood": 1740000 },
+      { "gold": 35900000, "wood": 3540000 }
+    ],
+    "archivable": true,
+    "description": "★ 契约 §14.2：每级 ×1.50 攻击（原为 +10% 加法，是装饰品），5 级满 7.59×。攻击力同时是窃金乘区，等于双倍收益。单线总投入 67,500 金 / 6,700 木。"
+  },
+  {
+    "id": "attack_speed",
+    "name": "攻速强化",
+    "maxLevel": 5,
+    "effectMode": "mul",
+    "target": "speed",
+    "effectPerLevel": 1400,
+    "effectUnit": "permille",
+    "costPerLevel": [
+      { "gold": 1900000, "wood": 190000 },
+      { "gold": 4000000, "wood": 400000 },
+      { "gold": 8300000, "wood": 830000 },
+      { "gold": 17400000, "wood": 1740000 },
+      { "gold": 35900000, "wood": 3540000 }
+    ],
+    "archivable": true,
+    "description": "★ 契约 §14.2：每级 ×1.40 攻速（原为 +8% 加法），5 级满 5.38×。直接提高窃金触发频率，与攻击强化是 DPS 的两个乘区。单线总投入 67,500 金 / 6,700 木。"
+  },
+  {
+    "id": "range",
+    "name": "射程强化",
+    "maxLevel": 5,
+    "effectMode": "mul",
+    "target": "range",
+    "effectPerLevel": 1100,
+    "effectUnit": "permille",
+    "costPerLevel": [
+      { "gold": 1500000, "wood": 150000 },
+      { "gold": 3200000, "wood": 320000 },
+      { "gold": 6600000, "wood": 660000 },
+      { "gold": 13800000, "wood": 1380000 },
+      { "gold": 28400000, "wood": 2790000 }
+    ],
+    "archivable": true,
+    "description": "★ 契约 §14.2：每级 ×1.10 射程，5 级满 1.61×（工具性，不参与 DPS 乘积）。射程=窃金窗口。单线总投入 53,500 金 / 5,300 木。"
+  },
+  {
+    "id": "steal_crit_rate",
+    "name": "窃金暴击率",
+    "maxLevel": 5,
+    "effectMode": "add",
+    "target": "critRate",
+    "effectPerLevel": 50,
+    "effectUnit": "permille",
+    "effectCap": 300,
+    "costPerLevel": [
+      { "gold": 2500000, "wood": 250000 },
+      { "gold": 5200000, "wood": 520000 },
+      { "gold": 10900000, "wood": 1090000 },
+      { "gold": 22900000, "wood": 2290000 },
+      { "gold": 47500000, "wood": 4750000 }
+    ],
+    "archivable": true,
+    "description": "每级 +5% 窃金暴击率（保持加法，因有 300‰=30% 上限，契约 §14.2）。基础 5% → 满级 30%。单线总投入 89,000 金 / 8,900 木。"
+  },
+  {
+    "id": "steal_crit_mul",
+    "name": "窃金暴击效率",
+    "maxLevel": 5,
+    "effectMode": "add",
+    "target": "critMul",
+    "effectPerLevel": 250,
+    "effectUnit": "permille",
+    "effectCap": 2750,
+    "costPerLevel": [
+      { "gold": 2500000, "wood": 250000 },
+      { "gold": 5200000, "wood": 520000 },
+      { "gold": 10900000, "wood": 1090000 },
+      { "gold": 22900000, "wood": 2290000 },
+      { "gold": 47500000, "wood": 4750000 }
+    ],
+    "archivable": true,
+    "description": "每级 +25% 暴击倍率（保持加法，因有 2750‰=275% 上限，契约 §14.2）。基础 150% → 满级 275%。单线总投入 89,000 金 / 8,900 木。"
+  },
+  {
+    "id": "population",
+    "name": "人口上限",
+    "maxLevel": 5,
+    "effectMode": "add",
+    "target": "population",
+    "effectPerLevel": 2,
+    "effectUnit": "count",
+    "costPerLevel": [
+      { "gold": 1300000, "wood": 130000 },
+      { "gold": 2700000, "wood": 270000 },
+      { "gold": 5600000, "wood": 560000 },
+      { "gold": 11700000, "wood": 1170000 },
+      { "gold": 24200000, "wood": 2570000 }
+    ],
+    "archivable": true,
+    "description": "每级 +2 人口（纯计数，故 effectUnit = count、effectMode = add）。契约 §14.2 未列入改乘法的清单，保持加法；§14.16 裁决「满科技」标准配置包含本条 → +10 = 50 塔位。单线总投入 45,500 金 / 4,700 木。"
+  },
+  {
+    "id": "base_level",
+    "name": "基地等级",
+    "maxLevel": 5,
+    "effectMode": "add",
+    "target": "baseLevel",
+    "effectPerLevel": 80,
+    "effectUnit": "permille",
+    "costPerLevel": [
+      { "gold": 2400000, "wood": 0 },
+      { "gold": 5000000, "wood": 0 },
+      { "gold": 10500000, "wood": 0 },
+      { "gold": 22100000, "wood": 0 },
+      { "gold": 46000000, "wood": 0 }
+    ],
+    "archivable": true,
+    "description": "解锁高阶塔 / 小精灵；每级 +8% 木材产出（effectPerLevel 为 data-arch 推断，策划案只说「+木材产出」；契约 §14.2 未列入改乘法的清单）。单线总投入 86,000 金 / 0 木。"
+  }
+]

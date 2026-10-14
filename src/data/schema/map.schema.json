@@ -1,0 +1,124 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MapDef",
+  "description": "地图与路径（策划案 §4.6；契约 §14.11 新增的第 10 张表）。\n\n★ 坐标体系与 `src/sim/content.ts` 的 `GridDef` / `PathDef` **逐字段同单位**（这就是本表存在的意义：让模拟层不再复用 m0-fixture 的几何）：\n  · `grid.width/height`、`vault.{x,y,w,h}`、`buildDepth`、`haltIndex` = **普通整数（格）**\n  · `paths[].waypoints[].{x,y}` = **格 ×1000 的定点**（`floor(x/1000)` 即所在格，与 `rasterizePathCells` 一致）\n  · `pathLengthCells` = 格 ×1000 的定点（折线总长）\n\n⚠️ 这是本项目第 4 类「同型不同单位」陷阱（前三次：attackInterval 频率/间隔、bounty 绝对值/比率、aura 增量/乘区）。\n**不要把像素写进来，也不要把格写成浮点。**",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "grid",
+    "vault",
+    "buildDepth",
+    "haltPointsPerLane",
+    "paths",
+    "openLanes",
+    "description"
+  ],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$", "maxLength": 32 },
+    "name": { "type": "string", "minLength": 1, "maxLength": 32 },
+    "grid": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height"],
+      "description": "逻辑网格尺寸（格，普通整数）。对应 sim `GridDef.width/height`。",
+      "properties": {
+        "width": { "type": "integer", "minimum": 8, "maximum": 128 },
+        "height": { "type": "integer", "minimum": 8, "maximum": 128 }
+      }
+    },
+    "vault": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y", "w", "h"],
+      "description": "宝库矩形（格，普通整数）。策划案 §4.6 = 中央 5×5。对应 sim `GridDef.vault`。",
+      "properties": {
+        "x": { "type": "integer", "minimum": 0 },
+        "y": { "type": "integer", "minimum": 0 },
+        "w": { "type": "integer", "minimum": 1 },
+        "h": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "buildDepth": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4,
+      "description": "可建造区深度：路径两侧各 N 格（策划案 §4.6 = 2）。对应 sim `SimConstants.buildDepth`；`computeBuildableCells` 用它从路径格向四周扩张。必须与 constants.map.buildableWidthCells/1000 一致。"
+    },
+    "haltPointsPerLane": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4,
+      "description": "每路 ★停顿点数量（策划案 §4.6 = 1）。实际位置由 `paths[].haltIndex` 指定（停顿时长在 constants.haltPointStopDuration）。必须与 constants.map.haltPointsPerLane 一致。"
+    },
+    "paths": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 4,
+      "description": "路径序列。★ **数组顺序即 sim 的开放路顺序**：`tick.ts` 用 `constants.difficulty[id].paths` 作为**路数**取 `content.paths[0..n-1]`，所以前 N 条必须是该难度真正要开的路。",
+      "items": { "$ref": "#/definitions/Path" }
+    },
+    "openLanes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["N1", "N2", "N3", "N4", "N5"],
+      "description": "各难度开放的路径 id 列表（策划案 §4.6：N1–N2 开 2 路，N3+ 开 4 路）。必须与 difficulty.json 的 openLanes（路数）一致，且必须等于 `[0..n-1]`（sim 按数组顺序取前 n 条）。",
+      "properties": {
+        "N1": { "$ref": "#/definitions/LaneList" },
+        "N2": { "$ref": "#/definitions/LaneList" },
+        "N3": { "$ref": "#/definitions/LaneList" },
+        "N4": { "$ref": "#/definitions/LaneList" },
+        "N5": { "$ref": "#/definitions/LaneList" }
+      }
+    },
+    "description": { "type": "string", "minLength": 1, "maxLength": 300 }
+  },
+  "definitions": {
+    "LaneList": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 4,
+      "uniqueItems": true,
+      "items": { "type": "integer", "minimum": 0, "maximum": 3 }
+    },
+    "Point": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y"],
+      "description": "格坐标（定点 ×1000）。`floor(x/1000)` 即所在格。",
+      "properties": {
+        "x": { "type": "integer", "minimum": 0, "maximum": 128000 },
+        "y": { "type": "integer", "minimum": 0, "maximum": 128000 }
+      }
+    },
+    "Path": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "lane", "name", "waypoints", "haltIndex", "pathLengthCells"],
+      "properties": {
+        "id": { "type": "integer", "minimum": 0, "maximum": 3, "description": "路径 id。必须 == 它在 paths[] 中的下标（sim 用下标索引）。" },
+        "lane": { "enum": ["A", "B", "C", "D"], "description": "策划案 §4.6 的入口代号（A 左上 / B 右上 / C 左下 / D 右下）" },
+        "name": { "type": "string", "minLength": 1, "maxLength": 24 },
+        "waypoints": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 12,
+          "items": { "$ref": "#/definitions/Point" },
+          "description": "折线顶点（格，定点）。waypoints[0] = 入口，最后一个 = 宝库。相邻点必须轴对齐（本表为格子地图）。"
+        },
+        "haltIndex": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 11,
+          "description": "★停顿点所在 waypoint 下标；敌人到达 `waypoints[haltIndex]` 时停顿 constants.haltPointStopDuration。必须 < waypoints.length。"
+        },
+        "pathLengthCells": {
+          "type": "integer",
+          "minimum": 1000,
+          "description": "折线总长（格，定点）。策划案 §4.6 ≈ 40 格；校验器会从 waypoints 重算并断言误差 ≤1 格（防手抄错）。"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EnemyDef",
+  "description": "敌人定义（策划案 §4.5.2）。baseHp / baseWallet 是「第 1 波的基准值 × 该敌人的系数」，波次成长由 constants.json 的 hpIndex / walletIndex 施加。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "armorType",
+    "baseHp",
+    "baseWallet",
+    "speed",
+    "flying",
+    "stealResist",
+    "dodge",
+    "bountyRatio",
+    "isBoss",
+    "sprite"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "maxLength": 32,
+      "description": "唯一 id。被 waves.json 的 groups[].enemy 引用。"
+    },
+    "name": { "type": "string", "minLength": 1, "maxLength": 24 },
+    "armorType": { "$ref": "#/definitions/ArmorType" },
+    "baseHp": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "定点。基准 40 HP × 系数 → 40000"
+    },
+    "baseWallet": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "定点。基准 10 金 × 系数 → 10000"
+    },
+    "speed": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 20000,
+      "description": "格/秒，定点。2.0 格/秒 → 2000"
+    },
+    "flying": { "type": "boolean" },
+    "stealResist": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000,
+      "description": "窃金抗性，千分比。1000 = 完全免疫"
+    },
+    "dodge": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000,
+      "description": "闪避率，千分比"
+    },
+    "bountyRatio": { "$ref": "#/definitions/BountyRatio" },    "isBoss": { "type": "boolean" },
+    "hooks": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 4,
+      "uniqueItems": true,
+      "items": { "$ref": "#/definitions/Hook" },
+      "description": "特殊机制钩子 id；必须来自固定目录（引用完整性校验目标）"
+    },
+    "sprite": { "type": "string", "minLength": 1, "maxLength": 64 },
+    "description": { "type": "string", "minLength": 1, "maxLength": 200 }
+  },
+  "definitions": {
+    "ArmorType": {
+      "enum": ["light", "medium", "heavy", "fortified", "divine"]
+    },
+    "Hook": {
+      "enum": ["split", "revive", "aura_speed", "boss_drop", "steal_immune"]
+    },
+    "BountyRatio": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["gold", "wood"],
+      "properties": {
+        "gold": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000,
+          "description": "★ 击杀奖励**比率**，千分比：占该敌人「当波钱包」的比例。170 = 17%。\n\n**必须乘以当波钱包才是实际金币**：`killGold = bountyRatio.gold × baseWallet × walletIndex^(wave-1) / 1000`。（契约 v0.1.2 修订：原 `bounty.gold` 名为 gold 却要求按曲线缩放，是陷阱——engine-dev 极可能当绝对值实现，结果全局击杀奖励只有钱包总量的 0.04%，违反 §4.1.1「击杀奖励占收入 15–20%」。）"
+        },
+        "wood": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000,
+          "description": "击杀奖励木材比率，千分比。§4.1.1 规定木材主要来自小精灵与窃金附带，故本表全为 0。"
+        }
+      }
+    }
+  }
+}

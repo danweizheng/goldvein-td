@@ -1,0 +1,10 @@
+# pnpm 工作区配置
+#
+# 注意：此文件由主策划维护，不属于任何 agent 的独占路径。
+#
+# 为什么需要 onlyBuiltDependencies：
+#   pnpm 10+ 默认不执行依赖的 postinstall 构建脚本（安全策略）。
+#   esbuild 需要其 postinstall 落地平台二进制，否则 vite 无法转译 TS。
+#   不显式声明会触发交互式授权提示，在无人值守环境下会卡死或中止安装。
+onlyBuiltDependencies:
+  - esbuild
