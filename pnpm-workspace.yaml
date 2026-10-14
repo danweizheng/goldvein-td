@@ -1,10 +1,29 @@
 # pnpm 工作区配置
 #
-# 注意：此文件由主策划维护，不属于任何 agent 的独占路径。
+# ⚠️ 键名是 `allowBuilds`，**不是** `onlyBuiltDependencies`。
 #
-# 为什么需要 onlyBuiltDependencies：
-#   pnpm 10+ 默认不执行依赖的 postinstall 构建脚本（安全策略）。
-#   esbuild 需要其 postinstall 落地平台二进制，否则 vite 无法转译 TS。
-#   不显式声明会触发交互式授权提示，在无人值守环境下会卡死或中止安装。
-onlyBuiltDependencies:
-  - esbuild
+#   · pnpm 10 里它叫 `onlyBuiltDependencies`（列表）
+#   · **pnpm 11 改成了 `allowBuilds`（映射）**，并且**不读** `onlyBuiltDependencies`
+#     —— 写了不会报错，但**完全无效**。
+#
+# 这个坑本项目踩过一次（2026-10-14），而且是我自己造成的：
+#   ① 本站最初是 pnpm 交互提示的**原文**（`esbuild: set this to true or false`）—— 坏配置；
+#   ② 我"修"它时把**键与值一起换成了 pnpm 10 的 `onlyBuiltDependencies`**。
+#      **值确实是错的，但键本来是对的。**
+#   ③ 后果：本地 `pnpm install` 说 "Already up to date"（node_modules 已存在）→ 从不暴露；
+#      而 CI 的全新安装直接中止：
+#          [ERR_PNPM_IGNORED_BUILDS] Ignored build scripts: esbuild@0.21.5, esbuild@0.28.2
+#   ④ 下面这个形态是 `pnpm approve-builds --all` **实际写出**的内容（以此为准）。
+#
+# 为什么必须有它：esbuild 的 postinstall 负责落地平台二进制，不批准就不执行；
+# 而 `--frozen-lockfile` 在无人值守下**不给交互提示，直接 exit 1 中止安装**。
+#
+# 复现方式（不必推 CI，本地即可）：
+#   robocopy . "$env:TEMP\gv-test" /E /XD node_modules .git dist
+#   cd "$env:TEMP\gv-test" ; $env:CI='true' ; pnpm install --frozen-lockfile
+#
+# 若将来升级 pnpm 大版本导致此键再次失效，用 `pnpm approve-builds --all` 让它自己写出正确形态，
+# 然后**把结果原样抄回这里**，不要凭印象改键名。
+
+allowBuilds:
+  esbuild: true
